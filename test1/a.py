@@ -28,7 +28,7 @@ def get_str():#（定义函数）
 
 
     #打印数据
-    #ResponseStr = ResponseStr.decode("unicode_escape")
+    ResponseStr = ResponseStr.decode("unicode_escape")
 
     return ResponseStr
 
