@@ -37,6 +37,7 @@ if __name__ == "__main__":
     #while i<5:
         a = get_str()
        # i += 1
+        #print a
         print a
 
 
