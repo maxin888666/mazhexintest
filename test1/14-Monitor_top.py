@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 '''
-爬取官网
+爬取浏览器
 '''
 import ssl
 import socket
@@ -22,7 +22,6 @@ import traceback
 
 
 class Monitor_tronscan(object):
-
     @classmethod
     def send_msg(cls, mobile, item_name):
         """
@@ -32,7 +31,7 @@ class Monitor_tronscan(object):
          :param itemName:
          :return:
         """
-        url = "https://oapi.dingtalk.com/robot/send?access_token=" + "4e412e83d562c7c0a88cce6a0aa9f96565a3d43a8f972b96ba563b7d5ef85a58"
+        url = "https://oapi.dingtalk.com/robot/send?access_token=" + "961d0856cbde6105db99a399cfae5bfb6b238b19745f9d8cd90a3627f404a8b5"
         context = ssl._create_unverfed_context()
         data = {
             "msgtype": "text",
@@ -64,7 +63,7 @@ class Monitor_tronscan(object):
         # 请求
         headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'}
-        request = requests.get(url='https://tron.network', headers=headers, timeout=3)
+        request = requests.get(url='https://tronscan.org/#/en/', headers=headers, timeout=3)
         # request = urllib.request.Request(url=url, headers=headers,timeout=3)
         # 爬取结果
         response = urllib2.urlopen(request)
@@ -246,13 +245,13 @@ if __name__ == '__main__':
     socket.setdefaulttimeout(10.0)
     requested_list = []
     start = datetime.datetime.now()
-    site_list = ['https://debug.tronscan.org/#/']
-    local_json_list = ['common', 'trx', 'wallet', 'tronpg', 'index', 'resources', 'about', 'faq', 'bug',
-                       'personalcenter', 'tronpgawards']
-    #local_json_list = ['common','trx','wallet','tronpg','index','resources','about','faq','bug','personalcenter',
-                    # 'tronpgawards','carrers','showcarrer']
+    site_list = ['https://tronscan.org/#/']
+    local_json_list = ['nodes', 'representatives', 'markets', 'votes', 'votes-live', 'account', '', '', '',
+                       '', '']
+    # local_json_list = ['common','trx','wallet','tronpg','index','resources','about','faq','bug','personalcenter',
+    # 'tronpgawards','carrers','showcarrer']
     for json_content in local_json_list:
-        local_url = 'https://tron.network/locales/en/' + json_content + '.json'
+        local_url = 'https://tronscan.org/#/en/' + json_content + '.json'
         a = s.Assert_link_get_available(local_url)
     for site in site_list:
         s.check(site, s.Get_Pre_Uri(site))

@@ -5,13 +5,13 @@ import urllib
 import urllib2
 
 #get接口
-url = 'http://39.105.66.80:8091/walletsolidity/getaccount/'
+url = 'https://tron.network/api/v2/node/nodemap'
 
 def get_str():#（定义函数）
 
     #d定义请求数据，且对数据进行复制
     data = {}
-    data['address'] = 'TS8fyGssAxgBttmezCis9o3zz3jir5ysp9'
+    #data['address'] = 'TS8fyGssAxgBttmezCis9o3zz3jir5ysp9'
     #data['name'] = 'bochang123'
 
     #对数据进行编码
